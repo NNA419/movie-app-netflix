@@ -3,19 +3,6 @@ import { api_backdrop, api_object } from '../app/apiLink';
 import apiService from '../app/apiService';
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ImageGallery from 'react-image-gallery/src/ImageGallery';
-import ReactImageGallery from 'react-image-gallery';
-
-const MovieItem = (url) => {
-  return
-  <img
-    src={url}
-    width={"250px"}
-    height={"100px"}
-  >
-
-  </img>
-}
 
 function TopRate() {
 
@@ -40,24 +27,29 @@ function TopRate() {
       <h1>Top Rated</h1>
 
       <div className="movies-list">
-        <ReactImageGallery
-          showThumbnails={false}
-          originalHeight={"70px"}
-          originalWidth={"250px"}
-          items={dataTopRate.map((item) => {
-            return {
-              description: "",
-              original: `${api_backdrop.backdrop}${item.backdrop_path}`,
-              thumbnail: `${api_backdrop.backdrop}${item.backdrop_path}`,
-              renderItem: (
-                <MovieItem
-                  url={`${api_backdrop.backdrop}${item.backdrop_path}`}
-                />
-              ),
-            };
-          })}
-        />
+        {dataTopRate.map((item) => {
+          return (
+            <div key={item.id}>
+              <img
+                alt=''
+                className='img-movie'
+                src={`${api_backdrop.backdrop}${item.backdrop_path}`}
+              >
+              </img>
+            </div>
+          )
+        })}
       </div>
+
+      <div className="prev-next-wrapper">
+        <button className="prev-next-btn">
+          <ArrowBackIosIcon id="prev-btn" />
+        </button>
+        <button className="prev-next-btn">
+          <ArrowForwardIosIcon id="prev-btn" />
+        </button>
+      </div>
+
     </div>
   );
 }
