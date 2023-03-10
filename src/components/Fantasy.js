@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { api_backdrop, api_object } from '../app/apiLink';
-import apiService from '../app/apiService';
+import React, { useEffect, useState } from "react";
+import { api_backdrop, api_object } from "../app/apiLink";
+import apiService from "../app/apiService";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -10,30 +10,25 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation, A11y } from "swiper";
 
-function TopRate() {
-
-  const [dataTopRate, setDataTopRate] = useState([]);
+function Fantasy() {
+  const [dataFantasy, setDataFantasy] = useState([]);
   const [isLoop, setIsLoop] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiService.get(api_object.topRate);
-        setDataTopRate(response.data.results);
+        const response = await apiService.get(api_object.fantasy);
+        setDataFantasy(response.data.results);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, []);
-  
-  
-  // console.log(dataTopRate);
-  // console.log(intervalRef);
-  
+
   return (
     <div className="movies-list-container">
-      <h1>Top Rated</h1>
+      <h1>Fantasy</h1>
       <Swiper
         speed={900}
         slidesPerGroup={6}
@@ -47,10 +42,12 @@ function TopRate() {
             setIsLoop(true);
           }
         }}
-        onSwiper={(e) => {console.log("e2", e.a11y) }}
+        onSwiper={(e) => {
+          console.log("e2", e.a11y);
+        }}
         className="movies-list"
       >
-        {dataTopRate.map((item) => {
+        {dataFantasy.map((item) => {
           return (
             <SwiperSlide key={item.id}>
               <img
@@ -65,5 +62,5 @@ function TopRate() {
     </div>
   );
 }
-    
-export default TopRate
+
+export default Fantasy 
