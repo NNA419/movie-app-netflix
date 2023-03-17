@@ -12,6 +12,14 @@ function MovieIntro() {
     
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  function handlePlaying() {
+    setIsPlaying(!isPlaying);
+  }
+
+  function handleMute() {
+    setIsMuted(!isMuted);
+  }
     
   return (
     <div className="intro-container">
@@ -41,7 +49,7 @@ function MovieIntro() {
           </div>
           <div className="btn-play-moreinfo">
             <button
-              onClick={() => setIsPlaying(!isPlaying)}
+              onClick={handlePlaying}
               className="play-btn"
             >
               {isPlaying ? (
@@ -57,7 +65,9 @@ function MovieIntro() {
           </div>
         </div>
         <div className="tag-mute-wrapper">
-          <button className="mute-btn" onClick={() => setIsMuted(!isMuted)}>
+          <button
+            className="mute-btn"
+            onClick={handleMute}>
             {isMuted ? (
               <VolumeOffIcon id="volume-icon" />
             ) : (

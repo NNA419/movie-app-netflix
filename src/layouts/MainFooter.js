@@ -5,6 +5,20 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
 function MainFooter() {
+  const FooterOptionList = [
+    {
+      linkTitle: ["Audio Description", "Investor Relations", "Legal Notices"],
+    },
+    {
+      linkTitle: ["Help Center", "Jobs", "Cookie Preferences"],
+    },
+    {
+      linkTitle: ["Gift Cards", "Term of Use", "Corporate Information"],
+    },
+    {
+      linkTitle: ["Media Center", "Privacy", "Contact Us"],
+    },
+  ];
     return (
       <div className="main-footer-container">
         <div className="footer-container">
@@ -24,31 +38,20 @@ function MainFooter() {
               </button>
             </div>
             <div className="footer-menu-wrapper">
-              <ul>
-                <li>Audio Description</li>
-                <li>Investor Relations</li>
-                <li>Legal Notices</li>
-              </ul>
-              <ul>
-                <li>Help Center</li>
-                <li>Jobs</li>
-                <li>Cookie Preferences</li>
-              </ul>
-              <ul>
-                <li>Gift Cards</li>
-                <li>Terms of Use</li>
-                <li>Corporate Information</li>
-              </ul>
-              <ul>
-                <li>Media Center</li>
-                <li>Privacy</li>
-                <li>Contact Us</li>
-              </ul>
+              {FooterOptionList.map((e) => {
+                return (
+                  <ul className="title-list-footer">
+                    <li className='title-footer'>
+                      {e.linkTitle.map((title) => {
+                        return <a href="#">{title}</a>;
+                      })}
+                    </li>
+                  </ul>
+                );
+              })}
             </div>
           </div>
-
           <button className="Service-code-btn">Service Code</button>
-
           <div className="copy-right"> &#169; 1997-2023 Netflix,Inc.</div>
         </div>
       </div>

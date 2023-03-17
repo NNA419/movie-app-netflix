@@ -75,34 +75,7 @@ body{
     color: white;
 }
 
-@media (max-width : 768px){
-    .logo-wrapper{
-        width: 15%;
-    }
-    .menu-wrapper{
-        display : none;
-    }
-    #basic-button{
-        display: flex;
-        align-items: center;
-    }
-    .browse-list{
-        position: absolute;
-        display: none;
-        flex-direction: column;
-        margin: 0;
-        padding:0;
-        left: 30px;
-    }
-    .btn-list{
-        background-color: rgba(0, 0, 0, 0.253);
-        border: none;
-        color: white;
-        font-size: 12px;
-        height: 30px;
-        width: 200px;
-    }
-}
+
 
 .icon-wrapper{
     display: flex;
@@ -195,11 +168,19 @@ body{
     gap: 25px;
 }
 
-.footer-menu-wrapper ul li {
-    cursor: pointer;
+.title-list-footer li a {
+    color: grey;
+    text-decoration: none;
+}
+
+.title-list-footer li a:hover{
+    text-decoration: underline;
+}
+    
+.title-list-footer li{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap:15px;
 }
 
 .footer-menu-wrapper{
@@ -228,11 +209,13 @@ body{
 .Service-code-btn{
     background-color: transparent;
     color: gray;
-    border: 1px solid white;
+    border: 1px solid;
     width: 100px;
     height: 30px;
 }
-
+.Service-code-btn:hover{
+    color: white;
+}
 
 .media-btn{
     border: none;
@@ -483,4 +466,123 @@ body{
 .swiper {
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (max-width : 768px) {
+    .logo-wrapper {
+        width: 15%;
+    }
+
+    .menu-wrapper {
+        display: none;
+    }
+
+    #basic-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .browse-list {
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        left: 30px;
+    }
+
+    .btn-list {
+        background-color: rgba(0, 0, 0, 0.932);
+        border: none;
+        color: white;
+        font-size: 12px;
+        height: 30px;
+        width: 200px;
+    }
+
+    .introduce-movie-trailer {
+        top: 100px;
+        gap: 10px;
+    }
+
+    .img-des .img-unlocked {
+        width: 300px;
+    }
+
+    .img-des .des-unlock {
+        font-size: 12px;
+        color: white;
+        width: 300px;
+    }
+
+    .footer-container .title-footer {
+        font-size: 10px;
+    }
+
+    .footer-container .Service-code-btn {
+        font-size: 10px;
+        width: 80px;
+        height: 25px;
+    }
+
+    .footer-container .copy-right {
+        font-size: 10px;
+    }
+
+    .main-footer-container .footer-container {
+        margin: 40px;
+        width: 75%;
+    }
+
+    .background-cover {
+        height: 100px;
+    }
+
+    .img-des .img-unlocked {
+        width: 180px;
+    }
+
+    .tag-mute-wrapper {
+        top: 200px;
+    }
+    .tag-wrapper{
+        width:80px;
+        height:25px;
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .mute-btn {
+        width: 25px;
+        height: 25px;
+        padding : 4px;
+    }
+
+    .mute-btn #volume-icon {
+        width: 15px;
+        height: 15px;
+    }
+    .play-btn{
+        font-weight: 600;
+        font-size: 13px;
+        width: 70px;
+        height: 25px;
+    }
+    .play-btn #play-icon {
+        font-size: 20px;
+        margin-left: 5px;
+    }
+    .more-info-btn{
+        font-size: 13px;
+        width: 100px;
+        gap: 5px
+    }
+    .more-info-btn #info-icon{
+        font-size: 20px;
+    }
+    .input-search:focus {
+        padding-left: 25px;
+        width: 200px;
+        border-radius: 6px;
+    }
 }

@@ -1,8 +1,6 @@
-import ActionMovies from '../components/ActionMovies';
-import Animation from '../components/Animation';
-import Fantasy from '../components/Fantasy';
 import MovieIntro from '../components/MovieIntro';
-import TopRate from '../components/TopRate';
+import TopRateMovies from '../components/TopRateMovies';
+import { DataMoviesSlider } from '../DataMoviesSlider';
 
 function HomePage() {
 
@@ -11,11 +9,10 @@ function HomePage() {
   return (
     <>
       <MovieIntro />
-      <div className='movies-container'>
-        <TopRate />
-        <ActionMovies />
-        <Animation />
-        <Fantasy/>
+      <div className="movies-container">
+        {DataMoviesSlider.map((e) => {
+          return (<TopRateMovies MovieKind={e.MovieKind} api={e.api} />)
+        })}
       </div>
     </>
   );

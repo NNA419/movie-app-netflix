@@ -3,11 +3,17 @@ import LogoNexflix from "../images/logo_netflix.png";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useNavigate } from 'react-router-dom';
 
 
 function MainHeader() {
   const [scroll, setScroll] = useState(0);
   const [isClicked, setIsClicked] = useState("none");
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    navigate("/Login")
+  }
 
   const handleScrolly = () => {
     const scrolly = window.scrollY;
@@ -74,7 +80,7 @@ function MainHeader() {
             <NotificationsNoneIcon />
           </button>
 
-          <button className="sign-in">Sign in</button>
+          <button onClick={handleSignIn} className="sign-in">Sign in</button>
         </div>
       </div>
     </div>
