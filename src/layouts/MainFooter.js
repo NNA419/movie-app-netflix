@@ -42,8 +42,8 @@ function MainFooter() {
                 return (
                   <ul className="title-list-footer">
                     <li className='title-footer'>
-                      {e.linkTitle.map((title) => {
-                        return <a href="#">{title}</a>;
+                      {e.linkTitle.map((title, index) => {
+                        return <a href="#" key={index}>{title}</a>;
                       })}
                     </li>
                   </ul>

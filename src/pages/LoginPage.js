@@ -1,18 +1,43 @@
-import React from 'react';
+import React, {  } from 'react';
 import "./LoginPage.css";
 import LogoNexflix from "../images/logo_netflix.png"
 import { useForm, Controller } from "react-hook-form";
 
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../components/hook/useAuth';
+
+
+const schema = yup
+  .object({
+    email: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Email is required"),
+    
+    password: yup.string().required("Password is required"),
+  })
+  .required("Required");
+
 function LoginPage() {
 
-  const { control , handleSubmit } = useForm({
+  const navigate = useNavigate();
+  const auth = useAuth();
+
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
     defaultValues: {
       email: "",
       password: "",
     }
   });
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => { navigate("/"); auth.login({
+    email: data.email,
+    password: data.password
+  });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -28,16 +53,19 @@ function LoginPage() {
               <Controller
                 name="email"
                 control={control}
-                render={({ field }) => {
+                render={({ field, fieldState: { error } }) => {
                   return (
                     <input
                       {...field}
+                      // error={!!error}
+                      // helperText={error?.message}
                       className="input-login"
                       placeholder="Email or phone number"
                     ></input>
                   );
                 }}
               />
+              <p className="error-message">{errors.email?.message}</p>
               <Controller
                 name="password"
                 control={control}
@@ -51,6 +79,7 @@ function LoginPage() {
                   );
                 }}
               />
+              <p className="error-message">{errors.password?.message}</p>
               <button type="submit" className="Signin-btn">
                 Sign in
               </button>

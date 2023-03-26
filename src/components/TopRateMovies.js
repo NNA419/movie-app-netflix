@@ -9,11 +9,33 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation, A11y } from "swiper";
 import { IMG_URL } from '../app/config';
+import { useNavigate } from 'react-router-dom';
 
 function TopRateMovies({ MovieKind , api }) {
 
+  const [showExploreAll, setShowExploreAll] = useState(false);
   const [dataTopRate, setDataTopRate] = useState([]);
   const [isLoop, setIsLoop] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMouseEnter = () => {
+    setShowExploreAll(true);
+  }
+
+  
+
+  const handleMouseLeave = () => {
+    setShowExploreAll(false);
+  }
+
+  function handleExploreClick() {
+    navigate(`/${MovieKind}`)
+  }
+
+  function handleMovieClick(item) {
+      console.log(item)
+      navigate(`/movie/${item.id}`)
+   }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,13 +49,26 @@ function TopRateMovies({ MovieKind , api }) {
     fetchData();
   }, []);
   
-  
   // console.log(dataTopRate);
   // console.log(intervalRef);
   
+
   return (
     <div className="movies-list-container">
-      <h1>{MovieKind}</h1>
+      <div
+        className="Explore-moviekind-wrapper"
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="" onMouseEnter={handleMouseEnter}>
+          <h1 className="movie-kind-name">{MovieKind}</h1>
+        </div>
+        {showExploreAll && (
+          <button className="Explore-btn" onClick={handleExploreClick}>
+            Explore All
+          </button>
+        )}
+      </div>
+
       <Swiper
         speed={900}
         slidesPerGroup={6}
@@ -68,12 +103,12 @@ function TopRateMovies({ MovieKind , api }) {
       >
         {dataTopRate.map((item) => {
           return (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.id} onClick={() => handleMovieClick(item)}>
               <img
                 alt=""
                 className="img-movie"
                 src={`${IMG_URL}${item.backdrop_path}`}
-              ></img>
+              />
             </SwiperSlide>
           );
         })}

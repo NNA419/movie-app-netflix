@@ -4,12 +4,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../components/hook/useAuth';
 
 
 function MainHeader() {
   const [scroll, setScroll] = useState(0);
   const [isClicked, setIsClicked] = useState("none");
   const navigate = useNavigate();
+  const auth = useAuth();
+
+  console.log(auth);
 
   const handleSignIn = () => {
     navigate("/Login")
@@ -47,17 +51,20 @@ function MainHeader() {
           </div>
 
           <div>
-            <button onClick={() => {
-              if (isClicked === "none")
-              {
-                setIsClicked("flex")
-              } else {
-              setIsClicked("none")
-            }}} id="basic-button">
+            <button
+              onClick={() => {
+                if (isClicked === "none") {
+                  setIsClicked("flex");
+                } else {
+                  setIsClicked("none");
+                }
+              }}
+              id="basic-button"
+            >
               Browse
               <ArrowDropDownIcon />
             </button>
-            <div className="browse-list" style={{display: isClicked}}>
+            <div className="browse-list" style={{ display: isClicked }}>
               <button className="btn-list">Home</button>
               <button className="btn-list">TV Shows</button>
               <button className="btn-list">Movies</button>
@@ -79,8 +86,20 @@ function MainHeader() {
           <button className="notification-icon">
             <NotificationsNoneIcon />
           </button>
+          {auth?.state?.user? (
 
-          <button onClick={handleSignIn} className="sign-in">Sign in</button>
+            <div>
+              <span className='user-email'>{auth.state.user.email}</span>
+              <button className="sign-in">
+                Sign out
+              </button>
+            </div>
+              
+          ) : (
+            <button onClick={handleSignIn} className="sign-in">
+              Sign in
+            </button>
+          )}
         </div>
       </div>
     </div>

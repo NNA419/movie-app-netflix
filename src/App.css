@@ -275,7 +275,10 @@ body{
     border-radius: 5px;
     border: none;
 }
-
+#basic-button:hover{
+    cursor: pointer;
+    color: #a7a5a5;
+}
 .play-btn:hover{
     background-color: rgb(212, 204, 204);
     transition: 0.1s ease-in;
@@ -372,6 +375,7 @@ body{
 
  .movies-container{
     padding: 40px 0px 40px 40px ;
+    z-index: 1 !important;
  }
 
  .movies-list-container{
@@ -391,6 +395,45 @@ body{
  }
 /* 
  //img-movie */
+
+ .movie-kind-name:hover{
+    cursor: pointer;
+ }
+.Explore-moviekind-wrapper{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.Explore-btn{
+    background-color:transparent ;
+    color: cyan;
+    border: none;
+    animation-name: slideIn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.Explore-btn:hover{
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-5%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.Explore-btn:hover {
+    cursor: pointer;
+}
 
  .swiper-slide img { 
      display: block;
@@ -468,6 +511,12 @@ body{
     margin-right: auto;
 }
 
+.user-email{
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
 @media (max-width : 768px) {
     .logo-wrapper {
         width: 15%;
@@ -498,6 +547,9 @@ body{
         font-size: 12px;
         height: 30px;
         width: 200px;
+    }
+    .btn-list:hover{
+        color: rgb(187, 182, 182);
     }
 
     .introduce-movie-trailer {
@@ -585,4 +637,8 @@ body{
         width: 200px;
         border-radius: 6px;
     }
+    .Explore-btn {
+        font-size: 10px;
+    }
+    
 }

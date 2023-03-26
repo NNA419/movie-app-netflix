@@ -171,6 +171,13 @@ select:focus{
   outline: none;
 }
 
+.error-message{
+  color:red;
+  font-size: 12px;
+  margin:5px;
+  padding-bottom: 5px;
+}
+
 /* ------------Reponsive for ipad-size--------------- */
 
 @media (max-width : 768px) {
