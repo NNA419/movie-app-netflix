@@ -1,14 +1,14 @@
 
 import MovieIntro from '../components/MovieIntro';
-import TopRateMovies from '../components/TopRateMovies';
 import { DataMoviesSlider } from '../DataMoviesSlider';
 import Modal from "react-modal";
-import { useState } from 'react';
+import {  useState } from 'react';
+import MoviesSlider from '../components/MoviesSlider';
 
 function HomePage() {
 
-  
   const [modalIsOpen, setIsOpen] = useState(false);
+
 
   const customStyles = {
     content: {
@@ -22,12 +22,12 @@ function HomePage() {
     },
   };
   return (
-    <div>
+    <>
       <MovieIntro />
       <div className="movies-container">
         {DataMoviesSlider.map((e, index) => {
           return (
-            <TopRateMovies MovieKind={e.MovieKind} api={e.api} key={index} />
+            <MoviesSlider MovieKind={e.MovieKind} api={e.api} key={index} />
           );
         })}
       </div>
@@ -38,7 +38,7 @@ function HomePage() {
       >
         <h1>hello</h1>
       </Modal>
-    </div>
+    </>
   );
 }
 

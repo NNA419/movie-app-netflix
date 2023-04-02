@@ -10,10 +10,23 @@ import useAuth from '../components/hook/useAuth';
 function MainHeader() {
   const [scroll, setScroll] = useState(0);
   const [isClicked, setIsClicked] = useState("none");
+  const [keyWord ,setKeyword] = useState("")
   const navigate = useNavigate();
   const auth = useAuth();
 
-  console.log(auth);
+  // console.log(auth);
+
+  const handleGoHome = () => {
+    navigate("/")
+  }
+
+  const handleKeyChange = (e) => {
+    let keywords = e.target.value;
+    if (keywords) {
+      navigate(`/search?movie=${keywords.trim()}`)
+    }
+    console.log(keywords);
+  }
 
   const handleSignIn = () => {
     navigate("/Login")
@@ -39,7 +52,7 @@ function MainHeader() {
       <div className="header-container">
         <div className="logo-menu">
           <div className="logo-wrapper">
-            <img src={LogoNexflix} alt="Netflix's logo" />
+            <img src={LogoNexflix} alt="Netflix's logo" onClick={handleGoHome}/>
           </div>
 
           <div className="menu-wrapper">
@@ -78,7 +91,7 @@ function MainHeader() {
         <div className="icon-wrapper">
           <div className="search-wrapper">
             <SearchIcon className="search-icon" />
-            <input className="input-search" type="text" placeholder="search" />
+            <input onChange={handleKeyChange} className="input-search" type="text" placeholder="search" />
           </div>
 
           <div className="dvd">DVD</div>

@@ -33,7 +33,9 @@ function LoginPage() {
     }
   });
 
-  const onSubmit = (data) => { navigate("/"); auth.login({
+  const onSubmit = (data) => {
+    navigate("/");
+    auth.login({
     email: data.email,
     password: data.password
   });
@@ -54,6 +56,7 @@ function LoginPage() {
                 name="email"
                 control={control}
                 render={({ field, fieldState: { error } }) => {
+                  console.log(field);
                   return (
                     <input
                       {...field}

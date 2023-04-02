@@ -11,10 +11,10 @@ import { Pagination, Navigation, A11y } from "swiper";
 import { IMG_URL } from '../app/config';
 import { useNavigate } from 'react-router-dom';
 
-function TopRateMovies({ MovieKind , api }) {
+function MoviesSlider({ MovieKind , api }) {
 
   const [showExploreAll, setShowExploreAll] = useState(false);
-  const [dataTopRate, setDataTopRate] = useState([]);
+  const [dataMovies, setDataMovies] = useState([]);
   const [isLoop, setIsLoop] = useState(false);
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function TopRateMovies({ MovieKind , api }) {
   }
 
   function handleExploreClick() {
-    navigate(`/${MovieKind}`)
+    navigate(`/moviekind/${MovieKind}`)
   }
 
   function handleMovieClick(item) {
@@ -41,7 +41,7 @@ function TopRateMovies({ MovieKind , api }) {
     const fetchData = async () => {
       try {
         const response = await apiService.get(api);
-        setDataTopRate(response.data.results);
+        setDataMovies(response.data.results);
       } catch (error) {
         console.log(error);
       }
@@ -101,9 +101,12 @@ function TopRateMovies({ MovieKind , api }) {
         }}
         className="movies-list"
       >
-        {dataTopRate.map((item) => {
+        {dataMovies.map((item) => {
           return (
-            <SwiperSlide key={item.id} onClick={() => handleMovieClick(item)}>
+            <SwiperSlide
+              key={item.id}
+              onClick={() => handleMovieClick(item)}
+            >
               <img
                 alt=""
                 className="img-movie"
@@ -117,4 +120,4 @@ function TopRateMovies({ MovieKind , api }) {
   );
 }
     
-export default TopRateMovies
+export default MoviesSlider
