@@ -155,7 +155,7 @@ body{
     display: flex;
     align-items: center;
     width: 100%;
-    height: 210px;
+    height: 100%px;
     background-color: black;
 }
 
@@ -396,7 +396,7 @@ body{
     scroll-behavior: smooth;
  }
 
-/* ---------------------------------------------------------------img-movie */
+/* ------------------------------------------------------img-movie */
 
 .img-movie:hover{
     cursor: pointer;
@@ -634,7 +634,7 @@ body{
     .more-info-btn{
         font-size: 13px;
         width: 100px;
-        gap: 5px
+        gap: 5px;
     }
     .more-info-btn #info-icon{
         font-size: 20px;
@@ -755,10 +755,6 @@ body{
     margin: 0;
     padding: 0;
 }
-.main-footer-container {
-    height: 200px;
-}
-
 .footer-container {
     padding-bottom: 20px;
 }

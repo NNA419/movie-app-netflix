@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import apiService from '../app/apiService';
 import { API_KEY, IMG_URL } from '../app/config';
-import "./SearchPage.css"
 import PaginationPage from '../components/PaginationPage';
+import "./SearchPage.css"
 
 function SearchPage() {
     const [dataSearch, setDataSearch] = useState([]);

@@ -241,10 +241,6 @@
     color: red;
 }
 
-.main-footer-container{
-    padding-top: 100px;
-}
-
 .info-area{
     display: flex;
     flex-wrap: wrap;

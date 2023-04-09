@@ -10,7 +10,6 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function DetailMoviePage() {
   const [dataDetail, setDataDetail] = useState({});

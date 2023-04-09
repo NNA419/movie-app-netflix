@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import { useNavigate, useParams } from 'react-router-dom';
 import { DataMoviesSlider } from '../DataMoviesSlider';
 import apiService from '../app/apiService';

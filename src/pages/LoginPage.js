@@ -145,7 +145,7 @@ function LoginPage() {
             <div className="select-language">
               <select className="select-box-lag">
                 <option selected>
-                  <i class="fa-solid fa-globe">English</i>
+                  <i className="fa-solid fa-globe">English</i>
                 </option>
                 <option>Tiếng Việt</option>
               </select>
