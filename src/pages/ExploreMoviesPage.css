@@ -60,15 +60,8 @@
 .MuiPagination-ul {
     justify-content: center;
     height: 80px;
-}
-
-.MuiPagination-ul .css-10w330c-MuiButtonBase-root-MuiPaginationItem-root {
-    color: rgb(104, 101, 101);
-    font-size: 15px;
-}
-
-.MuiPagination-ul .css-10w330c-MuiButtonBase-root-MuiPaginationItem-root:hover{
     color: white;
+    font-size: 15px;
 }
 
 
