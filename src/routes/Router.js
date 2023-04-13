@@ -15,9 +15,9 @@ function Router() {
         <Route index element={<HomePage />}></Route>
         <Route path="/moviekind/:moviekindId" element={<ExploreMoviesPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/movie/:movieId" element={<DetailMoviePage />} />
       </Route>
       <Route path="/Login" element={<LoginPage />} />
-      <Route path="/movie/:movieId" element={<DetailMoviePage />} />
     </Routes>
   );
 }

@@ -1,27 +1,21 @@
-import { Pagination, Stack } from '@mui/material';
-import React from 'react'
-import { useState } from 'react';
+import React from 'react';
+import { Pagination } from 'antd';
 
-function PaginationPage({page , totalPage , setPage}) {
+function PaginationPage({ page , totalPage , setPage}) {
 
-
-const handlePageChange = (event, value) => {
+const handlePageChange = (value) => {
     setPage(value);
-    console.log(event, value);
+    console.log(value);
   };
-  
-
 
   return (
     <div>
-      <Stack spacing={2}>
-        <Pagination
-          onChange={handlePageChange}
-          page={page}
-          count={totalPage}
-          shape="rounded"
-        />
-      </Stack>
+      <Pagination
+        defaultPageSize={1}
+        defaultCurrent={1}
+        total={totalPage}
+        showSizeChanger={false}
+        onChange={handlePageChange} />
     </div>
   );
 }

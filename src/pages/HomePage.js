@@ -1,7 +1,7 @@
 
 import MovieIntro from '../components/MovieIntro';
 import { DataMoviesSlider } from '../DataMoviesSlider';
-import Modal from "react-modal";
+// import Modal from "react-modal";
 import {  useState } from 'react';
 import MoviesSlider from '../components/MoviesSlider';
 
@@ -31,13 +31,13 @@ function HomePage() {
           );
         })}
       </div>
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         contentLabel="Example Modal"
         style={customStyles}
       >
         <h1>hello</h1>
-      </Modal>
+      </Modal> */}
     </>
   );
 }

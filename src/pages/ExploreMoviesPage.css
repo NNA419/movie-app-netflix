@@ -50,20 +50,43 @@
 .movie-expl-title:hover{
     color: white;
 }
-.MuiSvgIcon-root{
-    color: rgb(146, 146, 146);
+
+.ant-pagination-item a{
+    color:white !important;
+    background-color: transparent;
+}
+.ant-pagination-item-active a{
+    background-color: rgb(31, 30, 30);
+}
+.ant-pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+.ant-pagination .ant-pagination-prev {
+    color: black;
+    background-color: white;
 }
 
-.MuiSvgIcon-root:hover{
-    color: white;
+.ant-pagination .ant-pagination-next {
+    color: black;
+    background-color: transparent;
 }
-.MuiPagination-ul {
-    justify-content: center;
-    height: 80px;
+.ant-pagination .ant-pagination-prev{
+    color:black;
+    background-color: transparent;
+}
+.ant-pagination .ant-pagination-next{
+    color:black;
+    background-color: transparent;
+}
+.anticon{
     color: white;
-    font-size: 15px;
 }
 
+.ant-pagination .ant-pagination-item {
+    border: none;
+    background-color: transparent;
+}
 
 /* ------------Reponsive for ipad-size--------------- */
 

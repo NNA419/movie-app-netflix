@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import apiService from '../app/apiService';
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useEffect, useState } from "react";
+import apiService from "../app/apiService";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -8,11 +9,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation, A11y } from "swiper";
-import { IMG_URL } from '../app/config';
-import { useNavigate } from 'react-router-dom';
+import { IMG_URL } from "../app/config";
+import { useNavigate } from "react-router-dom";
 
-function MoviesSlider({ MovieKind , api }) {
-
+function MoviesSlider({ MovieKind, api }) {
   const [showExploreAll, setShowExploreAll] = useState(false);
   const [dataMovies, setDataMovies] = useState([]);
   const [isLoop, setIsLoop] = useState(false);
@@ -20,22 +20,20 @@ function MoviesSlider({ MovieKind , api }) {
 
   const handleMouseEnter = () => {
     setShowExploreAll(true);
-  }
-
-  
+  };
 
   const handleMouseLeave = () => {
     setShowExploreAll(false);
-  }
+  };
 
   function handleExploreClick() {
-    navigate(`/moviekind/${MovieKind}`)
+    navigate(`/moviekind/${MovieKind}`);
   }
 
   function handleMovieClick(item) {
-      console.log(item)
-      navigate(`/movie/${item.id}`)
-   }
+    console.log(item);
+    navigate(`/movie/${item.id}`);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,10 +46,9 @@ function MoviesSlider({ MovieKind , api }) {
     };
     fetchData();
   }, []);
-  
+
   // console.log(dataTopRate);
   // console.log(intervalRef);
-  
 
   return (
     <div className="movies-list-container">
@@ -103,10 +100,7 @@ function MoviesSlider({ MovieKind , api }) {
       >
         {dataMovies.map((item) => {
           return (
-            <SwiperSlide
-              key={item.id}
-              onClick={() => handleMovieClick(item)}
-            >
+            <SwiperSlide key={item.id} onClick={() => handleMovieClick(item)}>
               <img
                 alt=""
                 className="img-movie"
@@ -119,5 +113,5 @@ function MoviesSlider({ MovieKind , api }) {
     </div>
   );
 }
-    
-export default MoviesSlider
+
+export default MoviesSlider;

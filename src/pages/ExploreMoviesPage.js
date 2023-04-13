@@ -38,7 +38,8 @@ function ExploreMoviesPage({ api }) {
     const fetchMovies = async () => {
       const response = await apiService.get(`${DataMovieExplore.api}${page}`);
       setMovies(response.data.results);
-      setTotalPage(response.data.total_pages);
+      setTotalPage(
+        response.data.total_pages > 500 ? 500 : response.data.total_pages );
     };
 
     fetchMovies();
